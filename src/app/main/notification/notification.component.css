@@ -1,0 +1,43 @@
+._notification{
+  position: fixed;
+  z-index: 99999999999999999999;
+  height: 15vh;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+._infoArea{
+  height: 65%;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  position: absolute;
+}
+._actions{
+  height: 35%;
+  position: absolute;
+  bottom: 0%;
+}
+._accept{
+  background-color: rgba(0, 123, 255, 0.71);
+  position: absolute;
+  height: 100%;
+  left: 0%;
+  cursor: pointer;
+  color: white;
+  border-bottom-left-radius: 25px;
+}
+._denied{
+  background-color: rgba(255, 0, 0, 0.71);
+  position: absolute;
+  height: 100%;
+  right: 0%;
+  cursor: pointer;
+  border-bottom-right-radius: 25px;
+  color: white;
+}
+._centerContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

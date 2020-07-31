@@ -1,0 +1,29 @@
+._chat{
+  height: 4.5vh;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 5px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+._chat:hover{
+  background-color: rgba(0,0,0,0.045);
+  transform: scale(1.01);
+}
+._name{
+  display: inline-flex;
+  align-items: center;margin-left: 2px;
+}
+._status{
+  display: flex;
+  align-items: center;
+}
+._statusDisplay{
+ color: green;
+  font-size: 10px;
+}
+._rowCenter{
+  align-items: center;
+  height: 4vh;
+}

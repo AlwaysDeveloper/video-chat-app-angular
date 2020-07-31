@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <app-notification></app-notification>
+  <div class="row">
+    <div class="col-xl-3 col-sm-12 _contactList">
+      <app-contact-list [chatListPersonal]="chatListPersonal" [chatListGroup]="chatListGroup" [user]="LoggedInUser" (selectedChat)="selectedChatRoom($event)"></app-contact-list>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-9 _chatArea" #chatArea>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 _chatHeader">
+        <div class="row">
+          <div class="col-sm-8"></div>
+          <div class="col-sm-4 _accountOptions">
+            <div class="_pic float-right" (click)="logout()"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <app-chat-holder [selectedChat]="selectedChat"></app-chat-holder>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<audio src="http://127.0.0.1:8080/audio/ring.mp3" loop #ringtone></audio>

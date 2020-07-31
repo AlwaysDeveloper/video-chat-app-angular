@@ -1,0 +1,5 @@
+<div class="col-sm-10 _chat" *ngFor="let chat of chat" id="{{chat._id}}" (click)="selectAndCall($event)">
+  <fa-icon [icon]="faOnline" id="{{chat._id}}_online" class="_statusDisplay" style="display: none"></fa-icon>
+  <fa-icon [icon]="faOffline" id="{{chat._id}}_offline" class="_statusDisplay"></fa-icon>
+  <div class="_name">{{chat.name}}</div>
+</div>

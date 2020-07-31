@@ -1,0 +1,15 @@
+._childCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._childCenter a{
+  text-decoration: none;
+  color: black;
+}
+._customsignUP{
+  border-radius: 20px;
+  background-color: rgb(48, 203, 0);
+  border: 1px solid rgb(48, 203, 0);
+  color: white;
+}

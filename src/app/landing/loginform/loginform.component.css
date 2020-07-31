@@ -1,0 +1,10 @@
+
+._childCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._childCenter a{
+  text-decoration: none;
+  color: black;
+}

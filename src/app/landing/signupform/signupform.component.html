@@ -1,0 +1,31 @@
+<div class="row _childCenter" style="height: 100vh;">
+  <form class="col-xl-4 col-lg-4 col-md-8 col-sm-10" [formGroup]="signupForm">
+    <div class="row form-group">
+      <label for="confimPassword">Name</label>
+      <input type="text" class="form-control" id="confimPassword" placeholder="name" formControlName="name">
+    </div>
+    <div class="row form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+    </div>
+    <div class="row form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="Password" placeholder="Password" formControlName="password">
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary float-right _customsignUP" (click)="getSignupAndConnection($event)">SignUp</button>
+      </div>
+    </div>
+    <div class="row form-group _childCenter">
+      Or Sign-Up With
+    </div>
+    <div class="row form-group">
+      <app-social-ins class="col-sm-12"></app-social-ins>
+    </div>
+    <div class="row form-group _childCenter">
+      <a routerLink="/">Already Account? Login</a>
+    </div>
+  </form>
+</div>
+<app-alter *ngIf="alert" class="row _childCenter" [showEvent]="showErrorWarn" ></app-alter>

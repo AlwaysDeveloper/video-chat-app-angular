@@ -1,0 +1,29 @@
+<div class="col-sm-3 _notification" #notificationBody>
+  <div class="row">
+    <div class="col-sm-12 _infoArea _centerContent" #infoArea></div>
+    <div class="col-sm-12 _actions">
+      <div class="row">
+        <div class="col-sm-6 _accept _centerContent" (click)="pickCall()">
+          <div class="row">
+            <div class="col-sm-6">
+              <p style="margin: 0px!important;">Answer</p>
+            </div>
+            <div class="col-sm-6">
+              <fa-icon [icon]="faPhoneAlt"></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 _denied _centerContent" (click)="cutCall()">
+          <div class="row">
+            <div class="col-sm-6">
+              <p style="margin: 0px!important;">Decline</p>
+            </div>
+            <div class="col-sm-6">
+              <fa-icon [icon]="faPhoneSlash"></fa-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

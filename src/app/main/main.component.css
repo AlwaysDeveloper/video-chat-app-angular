@@ -1,0 +1,43 @@
+.container-fluid{
+  height: 100vh;
+  position: relative;
+}
+._noSpace{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+._contactList{
+  height: 100vh;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+._chatArea{
+  height: 100vh;
+}
+._chatHeader{
+  height: 10vh;
+  background-color: bisque;
+}
+._chatVideoHolder{
+  height: 90vh;
+}
+._chatTextHolder{
+  height: 90vh;
+}
+._connectedList{
+  background: yellow;
+  height: 20vh;
+  overflow-x: auto;
+}
+._accountOptions{
+  background-color: green;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+._pic{
+  width: 3vw;
+  height: 6vh;
+  background-color: red;
+  border-radius: 30px;
+  cursor: pointer;
+}

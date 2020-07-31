@@ -1,0 +1,107 @@
+@import "./../main.component.css";
+._chatTextHolder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._textChat{
+  background-color: white;
+  height: 90vh;
+  overflow: auto;
+}
+._tempChats{
+  height: 80vh;
+  overflow: auto;
+  display: flex;
+  align-items: flex-end;
+}
+._tempChats::-webkit-scrollbar{
+  display: none;
+}
+._tempInputs{
+}
+._textarea{
+  border-radius: 30px;
+  max-height: 30vh;
+  overflow: auto;
+  padding-left: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+._textoption{
+  border-bottom-right-radius: 30px;
+}
+
+textarea{
+  padding-left: 0px;
+  border: none;
+  resize: none;
+}
+textarea:focus{
+  box-shadow: none;
+}
+._dpHolder{
+  background: green;
+  width: 3vw;
+  height: 6vh;
+  border-radius: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#textInput{
+  width: 100%;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+._iconButton{
+  width: 35px;
+  outline: none;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: none;
+  font-size: 20px;
+  background: none;
+}
+._iconButton:hover{
+  background-color: rgba(0,0,0,0.2);
+}
+
+#chatOptions{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+#chatOptions li{
+  float: left;
+  margin-left: 10px;
+}
+
+._messageBox{
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+  height: auto;
+  width: fit-content;
+  max-width: 70%;
+  word-break: keep-all;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 15px;
+}
+._messageBox p{
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.45);
+}
+._messageBox div{
+  color: rgba(0, 0, 0, 0.31);
+}
+
+._floatRight{
+  float: right;
+  text-align: right;
+}

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SOCKET_ENDPOINT: 'https://mukul-chat-app.herokuapp.com:45119/',
+  REQUEST_ADDRESS: `https://mukul-chat-app.herokuapp.com:45119/videochat/API/v1`
 };
 
 /*

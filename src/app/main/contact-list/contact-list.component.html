@@ -1,0 +1,60 @@
+<div class="row" xmlns:backgroung-color="http://www.w3.org/1999/xhtml">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="_heading">
+        <span #username>VideoChat</span>
+      </div>
+      <div class="_onlineStatus">
+        <span id="online"></span>
+        &nbsp;&nbsp;
+        Active
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-12 _chatContact">
+    <div class="row">
+      <div class="col-xl-12 _chatSearchHolder">
+        <div class="col-sm-12 _overlay" #search>
+          <div class="card text-center col-sm-12">
+            <div class="card-header" style="background-color: white; padding-left: 0px;">
+              <input type="search" class="col-sm-12" placeholder="Search.." style="border: none; outline: none; padding-left: 0px;" (keyup)="searchFor($event)">
+            </div>
+            <div class="card-body">
+              <div class="row _searchBody" *ngFor="let result of searchResults" id="{{result._id}}">
+                <img src="http://127.0.0.1:1207/image/default.png" height="40px" style="margin-right: 10px">
+                <div class="col-sm-9">
+                  <div class="row">
+                    <div class="col-sm-12" style="padding-left: 0px!important;"><p style="float: left; margin: 0px!important;">{{result.name}}</p></div>
+                    <div class="col-sm-12" style="padding-left: 0px!important;"><p style="float: left; margin: 0px!important; font-size: 11px">{{result.email}}</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-10 _chatSearch" (click)="searchOn()" #searchShow>
+          <div style="width: 50%;padding-top: 3.5%;">
+            <p>Find Chat, Room or Bot</p>
+          </div>
+          <span>
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 _chatListHeader" (click)="activateChatType('pc')" [ngClass]="{_activeChatType: chatFlag === 'pc'}">
+        Personal Chat
+      </div>
+      <div class="col-sm-6 _chatListHeader" (click)="activateChatType('gc')" [ngClass]="{_activeChatType: chatFlag === 'gc'}">
+        Group Chat
+      </div>
+    </div>
+    <div class="row _chatList" *ngIf="chatFlag==='pc'">
+      <app-chat class="col-sm-12" style="padding-left: 0px!important;" [chat]="chatListPersonal" (selectedChat)="selectedChat($event)"></app-chat>
+    </div>
+    <div class="row _chatList" *ngIf="chatFlag==='gc'">
+      <app-chat class="col-sm-12" style="padding-left: 0px!important;" *ngFor="let chat of chatListGroup" [chat]="chat"></app-chat>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+._socialCTA{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 30px;
+  margin: 5px;
+  border-radius: 35px;
+  cursor: pointer;
+}
+._googleRed{
+  background-color: #de5246;
+}
+._facebookBlue{
+  background-color: #3b5998;
+}
+._twitterBlue{
+  background-color: #1DA1F2;
+}
+._linkedinBlue{
+  background-color:  #0072b1;
+}
+._instagramGradient{
+  background: linear-gradient(45deg, #405de6,#5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}

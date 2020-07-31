@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row _videoDisplayArea" id="videoArea" *ngIf="joined" #lobby></div>
+  <div class="col-xl-12 _onCallFooter" *ngIf="joined">
+    <div class="col-sm-3">
+      <ul class="_callOptions">
+        <li style="margin-left: 20px; margin-right: 20px;">
+          <button class="_iconButton" (click)="resetMedia('audio')" #audioPermit [ngClass]="{_iconButtonClicked: !mediaPermission.audio}">
+            <fa-icon [icon]="faMicrophoneSlash"></fa-icon>
+          </button>
+        </li>
+        <li style="margin-left: 20px; margin-right: 20px;">
+          <button class="_iconButton" (click)="resetMedia('video')" #videoPermit [ngClass]="{_iconButtonClicked: !mediaPermission.video}">
+            <fa-icon [icon]="faVideoSlash"></fa-icon>
+          </button>
+        </li>
+        <li style="margin-left: 20px; margin-right: 20px;">
+          <button class="_iconButton _leaveRoom" (click)="leaveRoomCall()">
+            <fa-icon [icon]="faPhoneSlash"></fa-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row _videoWaitingArea" *ngIf="!joined">
+    <div class="card col-sm-6 _videoCard">
+      <div class="row">
+        <div class="col-sm-8">
+          <video autoplay muted="true" class="col-sm-12" #mediaCheck style="display: flex;justify-content: center;height: 400px;">
+          </video>
+        </div>
+        <div class="card-body col-sm-4">
+          <div class="row">
+            <button class="btn btn-primary col-sm-8 _joinButton" (click)="joinRoomCall()">Join Now</button>
+            <button class="btn btn-primary col-sm-8 _chatButton" (click)="gotoChats()">Chats</button>
+            <div class="col-sm-10 _videoCheckControls">
+              <ul class="_callOptions">
+                <li>
+                  <button class="_iconButton" (click)="resetMedia('audio')" #audioPermit [ngClass]="{_iconButtonClicked: !mediaPermission.audio}">
+                    <fa-icon [icon]="faMicrophoneSlash"></fa-icon>
+                  </button>
+                </li>
+                <li>
+                  <button class="_iconButton" (click)="resetMedia('video')" #videoPermit [ngClass]="{_iconButtonClicked: !mediaPermission.video}">
+                    <fa-icon [icon]="faVideoSlash"></fa-icon>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
