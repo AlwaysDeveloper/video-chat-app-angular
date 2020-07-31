@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  SOCKET_ENDPOINT: 'https://mukul-chat-app.herokuapp.com:45119/',
-  REQUEST_ADDRESS: `https://mukul-chat-app.herokuapp.com:45119/videochat/API/v1`
+  SOCKET_ENDPOINT: 'http://192.168.0.105:8080',
+  REQUEST_ADDRESS: `http://192.168.0.105:8080/videochat/API/v1`
 };
 
 /*
