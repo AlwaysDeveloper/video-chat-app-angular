@@ -38,7 +38,7 @@ export class CommonDataHolderService {
     const newMessage = new MessageModal(
       message._id,
       message.message,
-      'text',
+      message.type,
       message.from.name,
       me,
       message.timestamp,

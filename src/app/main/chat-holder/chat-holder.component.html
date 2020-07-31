@@ -7,8 +7,12 @@
       <div class="col-xl-11 col-lg-11 cool-md-12 col-sm-12">
         <div class="row _tempChats" #chatArea>
           <div class="col-sm-12" *ngFor="let message of messages">
-            <div class="_messageBox" id="{{message._id}}" [ngClass]="{_floatRight: message.me}">
+            <div class="_messageBox" id="{{message._id}}_text" *ngIf="message.type==='text'" [ngClass]="{_floatRight: message.me}">
               <p>{{message.message}}</p>
+              <div>{{dateTimeConverter(message.timestamp)}}</div>
+            </div>
+            <div class="_messageBox" id="{{message._id}}_call" *ngIf="message.type==='call'" (click)="toCall(message.message)" [ngClass]="{_floatRight: message.me}">
+              <p>Click to join the call</p>
               <div>{{dateTimeConverter(message.timestamp)}}</div>
             </div>
             {{scrollDown(message._id)}}
@@ -35,7 +39,7 @@
                     </li>
                     <li>
                       <button class="_iconButton">
-                        <fa-icon [icon]="faPhoneAlt"></fa-icon>
+                        <fa-icon [icon]="faPhoneAlt" (click)="sendCreateRoom()"></fa-icon>
                       </button>
                     </li>
                     <li>

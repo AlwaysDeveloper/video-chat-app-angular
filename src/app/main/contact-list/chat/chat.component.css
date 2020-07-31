@@ -9,7 +9,6 @@
 }
 ._chat:hover{
   background-color: rgba(0,0,0,0.045);
-  transform: scale(1.01);
 }
 ._name{
   display: inline-flex;

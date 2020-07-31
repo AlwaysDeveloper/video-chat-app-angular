@@ -8,6 +8,7 @@ import {Fontawesome6Service} from '../../services/fontawesome6.service';
 import {MessageModal} from '../../models/message.model';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CommonDataHolderService} from '../../services/common-data-holder.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-chat-holder',
@@ -20,6 +21,7 @@ export class ChatHolderComponent implements OnInit {
   faPhoneAlt;
   faPhoneSlash;
   imageLink: string;
+  lastChat: string;
   @Input() selectedChat: Subject<ChatModel>;
   @ViewChild('fileSelector', {static: true}) fileInput: ElementRef<HTMLInputElement>;
   @ViewChild('textInput', {static: true}) textInput: ElementRef<HTMLTextAreaElement>;
@@ -34,7 +36,9 @@ export class ChatHolderComponent implements OnInit {
     private socket: SocketioService,
     private request: HttpClient,
     private fontawesome: Fontawesome6Service,
-    private dataHolderService: CommonDataHolderService
+    private dataHolderService: CommonDataHolderService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.faPaperPlane = this.fontawesome.getFontRegular('faPaperPlane');
     this.faUpload = this.fontawesome.getFontSolid('faUpload');
@@ -47,6 +51,16 @@ export class ChatHolderComponent implements OnInit {
       this.fetchMessages(chat._id);
       this.openedChat = chat;
       this.imageLink = chat.imageLink;
+      document.getElementById(chat._id).style.backgroundColor = '#00ffad6b';
+      if (this.lastChat){
+        document.getElementById(this.lastChat).addEventListener('mouseover',  () => {
+          document.getElementById(this.lastChat).style.backgroundColor = 'rgba(0,0,0,0.045)';
+        });
+        document.getElementById(this.lastChat).addEventListener('mouseout',  () => {
+          document.getElementById(this.lastChat).style.backgroundColor = 'white';
+        });
+      }
+      this.lastChat = chat._id;
     });
 
     this.dataHolderService.messageUpdater.subscribe(messages => {
@@ -97,7 +111,8 @@ export class ChatHolderComponent implements OnInit {
       message: this.messageForm.value.textMessage,
       timestamp: Math.ceil(Date.now() / 1000),
       to: this.openedChat._id,
-      from: this.dataHolderService.currentUser.data._id
+      from: this.dataHolderService.currentUser.data._id,
+      type: 'call'
     };
     this.socket.sendingMessage(message, this.socket.userSocketMapper[message.to]);
     // tslint:disable-next-line:forin
@@ -105,6 +120,27 @@ export class ChatHolderComponent implements OnInit {
   }
 
   scrollDown(id): void{
-    document.getElementById(id).scrollIntoView();
+    if(document.getElementById(`${id}_text`)){
+      document.getElementById(`${id}_text`).scrollIntoView();
+    }else if(document.getElementById(`${id}_call`)){
+      document.getElementById(`${id}_call`).scrollIntoView();
+    }
+  }
+
+  sendCreateRoom(): void{
+    const message = {
+      message: 'testroom',
+      timestamp: Math.ceil(Date.now() / 1000),
+      to: this.openedChat._id,
+      from: this.dataHolderService.currentUser.data._id,
+      type: 'call'
+    }
+    this.socket.sendingMessage(message, this.socket.userSocketMapper[message.to]);
+    // tslint:disable-next-line:forin
+    this.fileInput.nativeElement.value = this.textInput.nativeElement.value = '';
+  }
+
+  toCall(room): void{
+    this.router.navigate([]).then(result => {  window.open(`localhost:4200/call?room=${room}`); });
   }
 }

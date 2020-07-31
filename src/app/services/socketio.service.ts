@@ -68,8 +68,12 @@ export class SocketioService {
       delete this.userSocketMapper[data._contact];
       delete this.myPeerConnections[data._socket];
       delete this.receivingPeerConnections[data._socket];
-      const elementToRemove = document.getElementById(`${data._socket}_show_video`).parentNode;
-      this.render.removeChild(document.getElementById('videoArea'), elementToRemove);
+      try {
+        const elementToRemove = document.getElementById(`${data._socket}_show_video`).parentNode;
+        this.render.removeChild(document.getElementById('videoArea'), elementToRemove);
+      }catch (e) {
+        console.log(e.message);
+      }
       if (data._contact) {
         document.getElementById(`${data._contact}_online`).style.display = 'none';
         document.getElementById(`${data._contact}_offline`).style.display = 'block';
@@ -131,6 +135,14 @@ export class SocketioService {
     this.socket.on('room-leaved', data => {
       const elementToRemove = document.getElementById(`${data.socket}_show_video`).parentNode;
       this.render.removeChild(document.getElementById('videoArea'), elementToRemove);
+    });
+
+    this.socket.on('message-send', data => {
+      this.dataHolder.updateMessages(data.message, true);
+    })
+
+    this.socket.on('message-from', data => {
+      this.dataHolder.updateMessages(data.message);
     });
   }
 
